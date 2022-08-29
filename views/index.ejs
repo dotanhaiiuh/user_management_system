@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Validation Demo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Link</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fuild">
+        <h1 class="ml-3">Hello <%=title%></h1>
+        <div class="ml-3">
+            <a href="/users/create" class="btn btn-primary">Add new user</a>
+        </div>
+        <form action="/users/search" method="get" class="d-flex col-3 mt-2">
+            <input type="text" name="username" class="form-control">
+            <input type="submit" value="Search" class="btn btn-primary ml-2">
+        </form>
+        <table class="table ml-3 mt-2">
+            <tr class="thead-dark">
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+            <% users.forEach(function(user) { %>
+                <tr>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.age %>
+                    </td>
+                    <td>
+                        <a href="/users/view/<%=user.id%>" class="btn btn-success">View</a>
+                        <a href="/users/update/<%=user.id%>" class="btn btn-warning">Update</a>
+                        <a href="/users/delete/<%=user.id%>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>
+        </table>
+    </div>
+</body>
+
+</html>

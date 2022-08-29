@@ -1,0 +1,26 @@
+npm install express ejs cookie-parser body-parser lowdb@1.0.0 md5 mongoose dotenv
+
+// Thiết lập database
+use express-demo
+
+db.users.insertMany([
+    {
+      "id": 1,
+      "name": "Thịnh",
+      "age": 20
+    },
+    {
+      "id": 2,
+      "name": "Hùng",
+      "age": 18
+    },
+    {
+      "id": 3,
+      "name": "Thư",
+      "age": 22
+    },
+    {
+      "id": 4,
+      "name": "Hương",
+      "age": 27
+}]);
